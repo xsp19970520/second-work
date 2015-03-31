@@ -26,7 +26,7 @@ if (!isset($page)) {
 
 //开始分页
 $startCount=($page-1)*$perNumber;
-$sql = "SELECT * FROM page limit $startCount,$perNumber"
+$sql = "SELECT * FROM page limit $startCount,$perNumber";
 $res = $dbh-> prepare($sql);
 $res->execute();
 $result = $res->fetchALL(PDO::FETCH_ASSOC);
@@ -55,4 +55,5 @@ if ($page < $totalPage) { //如果page小于总页数,显示下一页链接
 	?>
 	<a href="fenye.php?page=<?php echo $page + 1;?>">下一页</a>
 	<a href="fenye.php?page=<?php echo $totalPage;?>">最后一页</a>
-<?php} ?>
+        <?php
+} ?>
